@@ -23,14 +23,14 @@ dev_dependencies:
 flutter:
   uses-material-design: true
 
-  # assets:
-  #   - assets/pictures/
-  #   - assets/icons/
+  assets:
+    - assets/pictures/
+    - assets/icons/
 
-  # fonts:
-  #   - family: Montserrat
-  #     fonts:
-  #       - asset: fonts/Montserrat-Regular.ttf
-  #       - asset: fonts/Montserrat-Medium.ttf
-  #       - asset: fonts/Montserrat-Light.ttf
-  #       - asset: fonts/Montserrat-SemiBold.ttf
+  fonts:
+    - family: Montserrat
+      fonts:
+        - asset: assets/fonts/Montserrat-Regular.ttf
+        - asset: assets/fonts/Montserrat-Medium.ttf
+        - asset: assets/fonts/Montserrat-Light.ttf
+        - asset: assets/fonts/Montserrat-SemiBold.ttf
