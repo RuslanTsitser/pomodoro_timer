@@ -49,27 +49,21 @@ class _AppDrawerState extends State<AppDrawer> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Container(
-                    color: Colors.blue,
-                    child: const DrawerTitle(title: 'INSTRUMENTS'),
-                  ),
+                  const DrawerTitle(title: 'INSTRUMENTS'),
                   Expanded(
                     child: ListView.builder(
                       physics: const NeverScrollableScrollPhysics(),
                       itemCount: menuItems.length,
                       itemBuilder: (context, index) {
-                        return Container(
-                          color: Colors.red,
-                          child: MenuItem(
-                            imagePath: menuItems[index].last,
-                            name: menuItems[index].first,
-                            selected: index == selectedItem ? true : false,
-                            onTap: () {
-                              setState(() {
-                                selectedItem = index;
-                              });
-                            },
-                          ),
+                        return MenuItem(
+                          imagePath: menuItems[index].last,
+                          name: menuItems[index].first,
+                          selected: index == selectedItem ? true : false,
+                          onTap: () {
+                            setState(() {
+                              selectedItem = index;
+                            });
+                          },
                         );
                       },
                     ),
