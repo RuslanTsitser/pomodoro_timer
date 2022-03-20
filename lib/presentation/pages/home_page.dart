@@ -95,12 +95,12 @@ class HomePage extends StatelessWidget {
                   ),
                   alignment: Alignment.bottomCenter,
                 ),
-                const Align(
+                Align(
                   alignment: Alignment.bottomCenter,
                   child: Padding(
-                    padding: EdgeInsets.only(bottom: 292.0),
+                    padding: const EdgeInsets.only(bottom: 292.0),
                     child: PomodoroWidget(
-                      pomodoroNumber: 3,
+                      pomodoroNumber: state.duration ~/ (30 * 60),
                     ),
                   ),
                 ),
