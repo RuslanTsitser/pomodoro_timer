@@ -24,26 +24,23 @@ class _TimerButtonState extends State<TimerButton> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 15.0),
-      child: OutlinedButton(
-        style: OutlinedButton.styleFrom(
-          fixedSize: const Size(181.0, 48.0),
-        ),
-        child: Text(started ? 'STOP' : 'FOCUS'),
-        onPressed: () {
-          if (started) {
-            setState(() {
-              started = false;
-            });
-          } else {
-            setState(() {
-              started = true;
-            });
-          }
-          widget.onPressed();
-        },
+    return OutlinedButton(
+      style: OutlinedButton.styleFrom(
+        fixedSize: const Size(181.0, 48.0),
       ),
+      child: Text(started ? 'STOP' : 'FOCUS'),
+      onPressed: () {
+        if (started) {
+          setState(() {
+            started = false;
+          });
+        } else {
+          setState(() {
+            started = true;
+          });
+        }
+        widget.onPressed();
+      },
     );
   }
 }
