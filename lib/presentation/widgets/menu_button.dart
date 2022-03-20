@@ -5,18 +5,14 @@ class MenuButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Builder(
-      builder: (context) {
-        return SizedBox(
-          width: 52,
-          child: InkWell(
-            child: Image.asset('assets/icons/menu.png'),
-            onTap: () {
-              Scaffold.of(context).openDrawer();
-            },
-          ),
-        );
-      },
+    return SizedBox(
+      width: 52,
+      child: InkWell(
+        child: Image.asset('assets/icons/menu.png'),
+        onTap: () {
+          Scaffold.of(context).openDrawer();
+        },
+      ),
     );
   }
 }
