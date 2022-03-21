@@ -20,6 +20,7 @@ class HomePage extends StatelessWidget {
       create: (context) => TimerBloc(ticker: const Ticker()),
       child: BlocBuilder<TimerBloc, TimerState>(
         builder: (context, state) {
+          double percentage = state.duration / state.initDuration * 100;
           return Scaffold(
             drawer: const AppDrawer(),
             body: Stack(
@@ -69,28 +70,33 @@ class HomePage extends StatelessWidget {
                         } else if (state is TimerRunPause) {
                           context.read<TimerBloc>().add(const TimerResumed());
                         } else {
-                          context
-                              .read<TimerBloc>()
-                              .add(TimerStarted(duration: state.duration));
+                          if (state.duration > 0) {
+                            context.read<TimerBloc>().add(
+                                  TimerStarted(
+                                    duration: state.duration,
+                                    initDuration: state.duration,
+                                  ),
+                                );
+                          }
                         }
                       },
                     ),
                   ),
                 ),
-                const Align(
+                Align(
                   child: Padding(
-                    padding: EdgeInsets.only(bottom: 665.0),
+                    padding: const EdgeInsets.only(bottom: 665.0),
                     child: TimerProgressWidget(
-                      percentage: 50,
+                      percentage: 100 - percentage,
                     ),
                   ),
                   alignment: Alignment.bottomCenter,
                 ),
-                const Align(
+                Align(
                   child: Padding(
-                    padding: EdgeInsets.only(bottom: 689.0),
+                    padding: const EdgeInsets.only(bottom: 689.0),
                     child: PercentageWidget(
-                      percentage: 50,
+                      percentage: 100 - percentage,
                     ),
                   ),
                   alignment: Alignment.bottomCenter,
@@ -100,7 +106,8 @@ class HomePage extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.only(bottom: 292.0),
                     child: PomodoroWidget(
-                      pomodoroNumber: state.duration ~/ (30 * 60),
+                      pomodoroNumber: state.initDuration ~/ (30 * 60),
+                      percentage: percentage,
                     ),
                   ),
                 ),
