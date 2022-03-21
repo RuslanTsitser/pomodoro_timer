@@ -51,6 +51,7 @@ class _AppDrawerState extends State<AppDrawer> {
                   const DrawerTitle(title: 'INSTRUMENTS'),
                   Expanded(
                     child: ListView.builder(
+                      padding: EdgeInsets.zero,
                       physics: const NeverScrollableScrollPhysics(),
                       itemCount: menuItems.length,
                       itemBuilder: (context, index) {
