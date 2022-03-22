@@ -13,10 +13,11 @@ class PomodoroWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     double _currentPomodoroNumber = pomodoroNumber * percentage / 100;
     return Container(
-      padding: const EdgeInsets.only(left: 10),
+      padding: const EdgeInsets.only(right: 10),
       height: 40,
       width: pomodoroNumber * 60,
       child: ListView.separated(
+        reverse: true,
         padding: EdgeInsets.zero,
         separatorBuilder: (context, index) {
           return const SizedBox(
